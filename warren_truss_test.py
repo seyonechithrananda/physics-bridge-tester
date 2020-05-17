@@ -125,8 +125,6 @@ def stress_test(dw):
     print("{} kg".format(cur_load))
     print(cur_load)
 
-ss.show_structure()
-
 dw = 0.01
 
 for id, load in loads:
@@ -136,5 +134,11 @@ while (test()):
     for id, load in loads:
         change_load(id, cur_load)
     cur_load += dw
+# maximum load calculation in kilograms
 print("{} kg".format(cur_load))
 print(cur_load)
+
+
+ss.show_structure()
+
+ss.show_bending_moment()
