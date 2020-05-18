@@ -139,9 +139,9 @@ print("{} kg".format(cur_load))
 print(cur_load)
 
 
-#ss.show_structure()
+ss.show_structure()
 #ss.show_bending_moment()
 #ss.show_reaction_force()
 #ss.show_axial_force()
 #ss.show_shear_force()
-ss.show_displacement(verbosity=1)
+#ss.show_displacement(verbosity=1)
