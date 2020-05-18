@@ -88,7 +88,7 @@ for node in supports:
     id = ss.find_node_id(nodes[node])
     ss.add_support_fixed(id)
 
-loads = [(4,9)]
+loads = [(4,9),(5,9)]
 
 for node, load in loads:
     id = ss.find_node_id(nodes_mid[node])
@@ -104,7 +104,7 @@ def test(verbose=False):
         print("Difference between maximum comp. pressure and compressive strength: {}".format(-1*min(forces)/pop_cross_area - pop_compressive_strength))
     return (max(forces)/pop_cross_area < pop_tensile_strength and -1*min(forces)/pop_cross_area < pop_compressive_strength)
 def change_load(old_load_id, new_load):
-    id = ss.find_node_id(nodes[old_load_id])
+    id = ss.find_node_id(nodes_mid[old_load_id])
     ss.point_load(id, Fy=-9.81*new_load/1000)
 
     ss.solve()
@@ -139,6 +139,9 @@ print("{} kg".format(cur_load))
 print(cur_load)
 
 
-ss.show_structure()
-
-ss.show_bending_moment()
+#ss.show_structure()
+#ss.show_bending_moment()
+#ss.show_reaction_force()
+#ss.show_axial_force()
+#ss.show_shear_force()
+ss.show_displacement(verbosity=1)

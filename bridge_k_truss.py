@@ -104,9 +104,11 @@ def createKTruss(length, height, n):
         connections.append([i, i+n-2])
         connections.append([i, i-n-1])
     supports = [(0), (n)]
-    loads = [(math.floor((5/2)*n-1), 18.2)]
+    #loads = [(math.floor((5/2)*n-1), 18.2)]
+    loads = [(21,9)]
+    print(loads)
     return Bridge(x, y, connections, loads, supports)
 
-k = createKTruss(90.5, 10.2, 5)
+k = createKTruss(90.5, 10.2, 9)
 k.show()
 k.stress_test(0.01)

@@ -77,10 +77,8 @@ def createPratt(length, height, n):
     connections = []
     for i in range(1, n):
         connections.append([i, i+n])
-        print(i, i+n)
     for i in range(0, math.ceil(n/2)):
         connections.append([i, i+n+1])
-        print(i, i+n+1)
     for i in range(n, n-math.ceil(n/2), -1):
         connections.append([i, i+n-1])
     connections.extend([[i, i+1] for i in range(n)])
@@ -106,9 +104,10 @@ def createKTruss(length, height, n):
         connections.append([i, i+n-2])
         connections.append([i, i-n-1])
     supports = [(0), (n)] # red supports
-    loads = [(math.floor((5/2)*n-1), 18.2)]
+    loads = [(math.floor((5/2)*n-1), 9)]
+    print(loads)
     return Bridge(x, y, connections, loads, supports)
 
-c = createPratt(90.5, 10.2, 8)
+c = createPratt(90.5, 10.2, 9)
 c.show()
 c.stress_test(0.01)
